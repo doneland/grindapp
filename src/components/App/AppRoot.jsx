@@ -1,5 +1,7 @@
 import React from 'react';
 
+import styles from './AppRoot.css';
+import bs from '../../../node_modules/bootstrap/dist/css/bootstrap.css';
 
 class AppRoot extends React.Component {
   constructor(props) {
@@ -8,10 +10,11 @@ class AppRoot extends React.Component {
 
   render() {
     return (
-      <div>{this.props.children}</div>
+      <div className={bs.container}>
+        {this.props.children}
+      </div>
     );
   }
 }
-
 
 export default AppRoot;
