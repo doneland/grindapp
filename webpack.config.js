@@ -3,6 +3,8 @@ var path = require('path');
 var cssnext = require('postcss-cssnext');
 var postcssFocus = require('postcss-focus');
 var postcssReporter = require('postcss-reporter');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var AssetsPlugin = require('assets-webpack-plugin');
 
 
 module.exports = {
@@ -13,15 +15,14 @@ module.exports = {
     './src/index.js'
   ],
   output: {
-    path: path.join(__dirname, 'public'),
+    path: path.join(__dirname, 'public', 'build'),
     filename: 'bundle.js'
   },
   module: {
     loaders: [
       {
         test: /\.css$/,
-        //exclude: /(node_modules)/,
-        loader: 'style-loader!css-loader?localIdentName=[name]__[local]__[hash:base64:5]&modules&importLoaders=1&sourceMap!postcss-loader'
+        loader: 'style!css-loader?localIdentName=[name]__[local]__[hash:base64:5]&modules&importLoaders=1&sourceMap!postcss-loader'
       },
       {
         test: /(js|jsx)/,
