@@ -2,8 +2,6 @@ import React from 'react';
 
 import TransactionForm from '../Transactions/TransactionForm.jsx';
 
-import AppRootStyles from './AppRoot.css';
-
 
 class AppDashboard extends React.Component {
   constructor(props) {
@@ -14,7 +12,7 @@ class AppDashboard extends React.Component {
   render() {
     return(
       <div>
-        <h1 className={AppRootStyles['gray-background']}>
+        <h1>
           Dashboard of application. Very cool.
         </h1>
         <TransactionForm />

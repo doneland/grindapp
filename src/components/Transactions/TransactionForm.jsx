@@ -1,6 +1,8 @@
 import React from 'react';
 import classNames from 'classnames';
 
+//import ar from '../App/AppRoot.css';
+
 
 class TransactionForm extends React.Component {
   constructor(props) {
@@ -10,13 +12,12 @@ class TransactionForm extends React.Component {
   render() {
     return (
       <form>
-        <div className={}>
+        <div>
           <input className="form-control" />
         </div>
 
         <div className="form-group">
-          <button
-            className="btn btn-success" >
+          <button>
             Add Transaction
           </button>
         </div>

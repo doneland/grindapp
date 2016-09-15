@@ -1,7 +1,7 @@
 import React from 'react';
+import classNames from 'classnames';
 
-import bs from '../../../node_modules/bootstrap/dist/css/bootstrap.css';
-import bst from '../../../node_modules/bootstrap/dist/css/bootstrap-theme.css';
+import s from './AppRoot.css';
 
 
 class AppRoot extends React.Component {
@@ -10,8 +10,17 @@ class AppRoot extends React.Component {
   }
 
   render() {
+    const classContainer = classNames(
+      s["gray-background"]
+    );
+    const classButtonSuccess = classNames(
+      "btn",
+      "btn-success"
+    );
+
     return (
-      <div className={bs["container"]}>
+      <div className={classContainer}>
+        <button className={classButtonSuccess}>Great</button>
         {this.props.children}
       </div>
     );

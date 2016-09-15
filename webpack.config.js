@@ -3,26 +3,34 @@ var path = require('path');
 var cssnext = require('postcss-cssnext');
 var postcssFocus = require('postcss-focus');
 var postcssReporter = require('postcss-reporter');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var AssetsPlugin = require('assets-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 
 module.exports = {
-  entry: [
-    'babel-polyfill',
-    'webpack-dev-server/client?http://localhost:8080',
-    'webpack/hot/only-dev-server',
-    './src/index.js'
-  ],
+  entry: {
+    bundle: [
+      'babel-polyfill',
+      'webpack-dev-server/client?http://localhost:8080',
+      'webpack/hot/only-dev-server',
+      './src/index.js'
+    ]
+  },
   output: {
     path: path.join(__dirname, 'public', 'build'),
-    filename: 'bundle.js'
+    filename: '[name].js',
+    publicPath: '/dist/'
   },
   module: {
     loaders: [
       {
+        test: /(globalStyles\.css)$/,
+        loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
+      },
+      {
         test: /\.css$/,
-        loader: 'style!css-loader?localIdentName=[name]__[local]__[hash:base64:5]&modules&importLoaders=1&sourceMap!postcss-loader'
+        include: [path.resolve(__dirname, 'src', 'components')],
+        loader: 'style!css-loader?localIdentName=[name]__[local]__[hash:base64:5]&modules&importLoaders=1&sourceMap!postcss'
       },
       {
         test: /(js|jsx)/,
@@ -48,17 +56,29 @@ module.exports = {
     ]
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    /*new webpack.DefinePlugin({
+      'process.env.NODE_ENV': 'development'
+    }),*/
+    // Emit a JSON file with assets paths.
+    new AssetsPlugin({
+      path: path.resolve(__dirname, './public/dist'),
+      filename: 'assets.json',
+      prettyPrint: true
+    }),
+    new ExtractTextPlugin("global-styles.css")
   ],
 
-  postcss: function () {
-    postcssFocus(),
-    cssnext({
-      browsers: ['last 2 versions', 'IE > 10']
-    }),
-    postcssReporter({
-      clearMessages: true
-    })
+  postcss(bundler) {
+    return [
+      postcssFocus(),
+      cssnext({
+        browsers: ['last 2 versions', 'IE > 10']
+      }),
+      postcssReporter({
+        clearMessages: true
+      })
+    ]
   },
 
   devServer: {

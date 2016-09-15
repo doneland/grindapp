@@ -1,0 +1,6 @@
+{
+  "bundle": {
+    "js": "/dist/bundle.js",
+    "css": "/dist/global-styles.css"
+  }
+}
