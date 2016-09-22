@@ -1,7 +1,8 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import s from './AppRoot.css';
+
+import styles from './AppRoot.css';
 
 
 class AppRoot extends React.Component {
@@ -10,17 +11,15 @@ class AppRoot extends React.Component {
   }
 
   render() {
-    const classContainer = classNames(
-      s["gray-background"]
-    );
-    const classButtonSuccess = classNames(
-      "btn",
-      "btn-success"
+    const classMainContainer = classNames(
+      'container',
+      styles.app
     );
 
+    console.log(process.env);
+
     return (
-      <div className={classContainer}>
-        <button className={classButtonSuccess}>Great</button>
+      <div className={classMainContainer}>
         {this.props.children}
       </div>
     );

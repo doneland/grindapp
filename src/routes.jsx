@@ -8,7 +8,7 @@ import AppDashboard from './components/App/AppDashboard.jsx';
 const routes = (
   <Route path='/' component={AppRoot} >
     <IndexRoute component={AppDashboard} />
-  </Route> 
+  </Route>
 );
 
 

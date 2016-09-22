@@ -57,9 +57,14 @@ module.exports = {
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    /*new webpack.DefinePlugin({
-      'process.env.NODE_ENV': 'development'
-    }),*/
+    // This config is only for config and client side code. So here we
+    // need to set environments accordingly.
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': JSON.stringify('development'),
+        'CLIENT': JSON.stringify(true)
+      }
+    }),
     // Emit a JSON file with assets paths.
     new AssetsPlugin({
       path: path.resolve(__dirname, './public/dist'),

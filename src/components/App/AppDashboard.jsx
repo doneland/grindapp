@@ -13,7 +13,7 @@ class AppDashboard extends React.Component {
     return(
       <div>
         <h1>
-          Dashboard of application. Very cool.
+          Dashboard of application. Very cool. Fine. Yupp.
         </h1>
         <TransactionForm />
       </div>
