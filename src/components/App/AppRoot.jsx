@@ -16,8 +16,6 @@ class AppRoot extends React.Component {
       styles.app
     );
 
-    console.log(process.env);
-
     return (
       <div className={classMainContainer}>
         {this.props.children}

@@ -7,7 +7,7 @@ const initialState = {
 
 
 function AppReducer(state=initialState, action) {
-  switch (aciton.type) {
+  switch (action.type) {
     case '':
       break;
     default:

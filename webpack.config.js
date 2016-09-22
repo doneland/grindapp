@@ -33,7 +33,7 @@ module.exports = {
         loader: 'style!css-loader?localIdentName=[name]__[local]__[hash:base64:5]&modules&importLoaders=1&sourceMap!postcss'
       },
       {
-        test: /(js|jsx)/,
+        test: /(\.js|\.jsx)/,
         exclude: /(node_modules)/,
         loader: 'babel'
       },

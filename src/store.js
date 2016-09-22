@@ -3,7 +3,8 @@
  */
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
-import DevTools from './components/DevTools';
+
+import DevTools from './components/DevTools/DevTools.jsx';
 import rootReducer from './rootReducer';
 
 
@@ -13,11 +14,14 @@ export function configureStore(initialState = {}) {
     applyMiddleware(thunk),
   ];
 
+
+  // DevTools 
   if (process.env.CLIENT && process.env.NODE_ENV === 'development') {
     // Enable DevTools only when rendering on client and during development.
     enhancers.push(window.devToolsExtension ? window.devToolsExtension() : DevTools.instrument());
   }
 
+  // Store initiation.
   const store = createStore(rootReducer, initialState, compose(...enhancers));
 
   // For hot reloading reducers

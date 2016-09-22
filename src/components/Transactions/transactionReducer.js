@@ -2,7 +2,7 @@ import _ from 'lodash';
 
 import {
 	TRANSACTION_ADD
-} from '/transactionActions';
+} from './transactionActions';
 
 
 let initialState = [
@@ -12,7 +12,7 @@ let initialState = [
 ];
 
 
-export default transactionReducer(state=initialState, action) {
+export default function transactionReducer(state=initialState, action) {
 	switch(action.type) {
 	case TRANSACTION_ADD:
 		return _.concat(state, action.transaction);

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux'
 
-import TransactionsList from './TransactionList'; 
+import TransactionsList from './TransactionsList.jsx'; 
 
 
 
@@ -22,6 +22,4 @@ function mapStateToProps(state) {
 	}
 }
 
-
-export TransactionsPage;
 export default connect(mapStateToProps)(TransactionsPage);

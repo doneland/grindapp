@@ -10,4 +10,4 @@ import TransactionReducer from './components/Transactions/transactionReducer';
 export default combineReducers({
   app: AppReducer,
   transactions: TransactionReducer
-]});
+});
