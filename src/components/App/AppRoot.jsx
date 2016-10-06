@@ -13,7 +13,8 @@ class AppRoot extends React.Component {
   render() {
     const classMainContainer = classNames(
       'container',
-      styles.app
+      styles.app,
+      styles["main-window"]
     );
 
     return (

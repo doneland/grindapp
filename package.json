@@ -18,13 +18,17 @@
     "classnames": "^2.2.5",
     "cross-env": "^2.0.1",
     "jquery": "^3.1.0",
-    "lodash": "^4.16.0",
+    "lodash": "^4.16.1",
+    "moment": "^2.15.1",
     "react": "^15.3.1",
     "react-dom": "^15.3.1",
+    "react-form": "0.0.2",
     "react-redux": "^4.4.5",
     "react-router": "^2.8.1",
     "redux": "^3.6.0",
+    "redux-form": "^6.0.5",
     "redux-thunk": "^2.1.0",
+    "validate.js": "^0.10.0",
     "webpack": "^1.13.2"
   },
   "devDependencies": {

@@ -1,0 +1,3 @@
+.btn:focus,.btn:active {
+   outline: 0 !important;
+}

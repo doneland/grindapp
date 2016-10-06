@@ -15,7 +15,9 @@ export const TRANSACTION_ADD = 'TRANSACTION_ADD';
 export function transactionAdd(transaction) {
 	return {
 		type: TRANSACTION_ADD,
-		transaction
+		payload: {
+			transaction
+		}
 	}
 }
 
