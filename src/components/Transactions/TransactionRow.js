@@ -6,16 +6,16 @@ import styles from './TransactionRow.css';
 
 
 const TransactionRow = ({transaction}) => {
-	return (
-		<div>
-			{transaction.category} => {transaction.value}
-		</div>
-	);
+  return (
+    <div>
+      {transaction.category} => {transaction.value}
+    </div>
+  );
 }
 
 
 TransactionRow.propTypes = {
-	transaction: PropTypes.object.isRequired
+  transaction: PropTypes.object.isRequired
 }
 
 
